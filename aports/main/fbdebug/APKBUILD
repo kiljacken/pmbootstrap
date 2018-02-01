@@ -1,0 +1,24 @@
+# Contributor: drebrez <drebrez@gmail.com>
+# Maintainer: drebrez <drebrez@gmail.com>
+pkgname=fbdebug
+pkgver=0.1
+pkgrel=0
+pkgdesc="Framebuffer debugging tool"
+url="https://github.com/postmarketOS"
+arch="all"
+license="GPL2"
+makedepends="linux-headers"
+source="fbdebug.c"
+builddir="$srcdir/"
+
+build() {
+	gcc fbdebug.c -o fbdebug.o -c
+	gcc fbdebug.o -o fbdebug
+}
+
+package() {
+	install -Dm755 "${builddir}/fbdebug" \
+		"${pkgdir}/usr/sbin/fbdebug"
+}
+
+sha512sums="713e39334b46cc33443f57a0a2d4657fcd97262661c56a7a6ddce41afb420ed27999310c25eb920e3689934d39b879ada1f4927dfed947f8be158a9d7150b9f8  fbdebug.c"
