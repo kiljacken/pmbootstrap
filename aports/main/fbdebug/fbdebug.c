@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2017 drebrez <drebrez@gmail.com>
+Copyright (C) 2018 drebrez <drebrez@gmail.com>
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -27,8 +27,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 void usage(char* appname)
 {
     printf("Usage: %s [-d DEV] [-h]\n\
-    -d	Framebuffer device (default /dev/fb0)\n\
-    -h	Show this help\n", appname);
+    -d  Framebuffer device (default /dev/fb0)\n\
+    -h  Show this help\n", appname);
 }
 
 void print_fix_screeninfo(struct fb_fix_screeninfo* scr_fix)
@@ -36,7 +36,7 @@ void print_fix_screeninfo(struct fb_fix_screeninfo* scr_fix)
     // ref: http://elixir.free-electrons.com/linux/latest/ident/fb_fix_screeninfo
     printf("Fixed screen info:\n");
     printf("\tid           = %s\n", scr_fix->id);
-    printf("\tsmem_start   = %u\n", scr_fix->smem_start);
+    printf("\tsmem_start   = %lu\n", scr_fix->smem_start);
     printf("\tsmem_len     = %u\n", scr_fix->smem_len);
     printf("\ttype         = %u\n", scr_fix->type);
     printf("\ttype_aux     = %u\n", scr_fix->type_aux);
@@ -45,7 +45,7 @@ void print_fix_screeninfo(struct fb_fix_screeninfo* scr_fix)
     printf("\typanstep     = %hu\n", scr_fix->ypanstep);
     printf("\tywrapstep    = %hu\n", scr_fix->ywrapstep);
     printf("\tline_length  = %u\n", scr_fix->line_length);
-    printf("\tmmio_start   = %u\n", scr_fix->mmio_start);
+    printf("\tmmio_start   = %lu\n", scr_fix->mmio_start);
     printf("\tmmio_len     = %u\n", scr_fix->mmio_len);
     printf("\taccel        = %u\n", scr_fix->accel);
     printf("\tcapabilities = %hu\n", scr_fix->capabilities);
@@ -102,7 +102,7 @@ void print_var_screeninfo(struct fb_var_screeninfo* scr_var)
 int main(int argc, char** argv)
 {
     const char *fb_device;
-	struct fb_fix_screeninfo scr_fix;
+    struct fb_fix_screeninfo scr_fix;
     struct fb_var_screeninfo scr_var;
     int fb_fd;
 

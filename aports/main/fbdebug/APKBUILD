@@ -9,6 +9,7 @@ arch="all"
 license="GPL2"
 makedepends="linux-headers"
 source="fbdebug.c"
+options="!check"
 builddir="$srcdir/"
 
 build() {
@@ -21,4 +22,4 @@ package() {
 		"${pkgdir}/usr/sbin/fbdebug"
 }
 
-sha512sums="713e39334b46cc33443f57a0a2d4657fcd97262661c56a7a6ddce41afb420ed27999310c25eb920e3689934d39b879ada1f4927dfed947f8be158a9d7150b9f8  fbdebug.c"
+sha512sums="adaad7542ccac8d10eac5761933c24de654ae169ea1d64649a8b728b4ecac987c77ca4f77d64a43e260c0042b207482936102ba55d9c528331eabefc746f3bae  fbdebug.c"
